@@ -12,9 +12,9 @@ createBtn.addEventListener('click', () => createBoxes(inputEl.value))
 
 let boxWidth = 30
 let boxHeight = 30
-let markupArr = []
+// let markupArr = []
 function createBoxes(amount) {
-  // let markupArr = []
+  let markupArr = []
   for (let i = Number(inputEl.min); i <= amount; i += Number(inputEl.step)) {
     const boxMarkup = `<div style="width:${boxWidth}px; height:${boxHeight}px; background-color:${getRandomHexColor()}"></div>`
     boxWidth += 10
@@ -28,5 +28,11 @@ function createBoxes(amount) {
 
 destroyBtn.addEventListener('click', destroyBoxes)
 function destroyBoxes(event) {
+  const boxMarkup = boxesMarkup.querySelectorAll('div')
+  
+  boxMarkup.forEach((element) => {
+    element.remove()
+  })
+  // inputEl.reset()
   
 }
